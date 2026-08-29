@@ -21,18 +21,19 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; }
+html, body { min-height: 100%; margin: 0; }
 body {
   background: var(--bg); color: var(--white);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.screen { display: none; width: 100vw; height: 100vh; }
-.screen.active { display: block; }
+.screen { display: none; width: 100vw; min-height: 100vh; flex-direction: column; }
+.screen.active { display: flex; }
 
 /* ---------- Start screen ---------- */
-#startScreen { position: relative; display: flex; align-items: center; justify-content: center; }
+#startScreen { position: relative; align-items: center; justify-content: center; min-height: 100vh; }
 .cosmic-bg {
   position: absolute; inset: 0;
   background:
@@ -44,7 +45,7 @@ body {
     radial-gradient(2px 2px at 60% 15%, #fff5, transparent);
   background-size: 100% 100%;
 }
-.start-content { position: relative; z-index: 1; text-align: center; max-width: 560px; padding: 24px; }
+.start-content { position: relative; z-index: 1; text-align: center; max-width: 560px; padding: 24px; margin: auto; }
 .wordmark { font-size: 48px; font-weight: 200; letter-spacing: 0.15em; color: var(--white); }
 .tagline { color: var(--gold); font-size: 13px; letter-spacing: 0.12em; margin-top: 8px; text-transform: uppercase; }
 .start-desc { color: var(--dim); font-size: 14px; line-height: 1.7; margin: 24px 0; }
@@ -57,8 +58,9 @@ body {
 .start-options label { font-size: 12px; color: var(--dim); display: flex; align-items: center; gap: 6px; }
 
 /* ---------- Demo screen ---------- */
-#demoScreen { display: flex; flex-direction: column; }
-#demoHeader { padding: 12px 20px 8px; }
+#demoScreen { display: none; flex-direction: column; min-height: 100vh; }
+#demoScreen.active { display: flex; }
+#demoHeader { padding: 12px 20px 8px; flex-shrink: 0; }
 .status-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 10px; color: var(--dim); margin-bottom: 8px; }
 .status-legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
 .progress-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
@@ -66,7 +68,7 @@ body {
 .scene-counter { font-size: 10px; color: var(--dim); text-align: right; margin-top: 4px; letter-spacing: 0.08em; }
 
 #sceneStage {
-  flex: 1; overflow-y: auto; padding: 20px; max-width: 900px; margin: 0 auto; width: 100%;
+  flex: 1; overflow-y: visible; padding: 20px; max-width: 900px; margin: 0 auto; width: 100%;
 }
 
 .scene-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -137,7 +139,7 @@ body {
 .final-tree .lit3 { color: var(--purple); }
 
 /* ---------- Captions ---------- */
-.caption-bar { min-height: 54px; padding: 10px 24px; text-align: center; border-top: 1px solid var(--border); }
+.caption-bar { min-height: 54px; padding: 10px 24px; text-align: center; border-top: 1px solid var(--border); flex-shrink: 0; }
 .caption-text { font-size: 14px; color: var(--white); line-height: 1.5; max-width: 760px; margin: 0 auto; }
 
 /* ---------- Transcript panel ---------- */
@@ -156,7 +158,7 @@ body {
 /* ---------- Controls ---------- */
 .control-bar {
   display: flex; align-items: center; gap: 6px; padding: 10px 16px; border-top: 1px solid var(--border);
-  flex-wrap: wrap; justify-content: center;
+  flex-wrap: wrap; justify-content: center; flex-shrink: 0;
 }
 .ctrl-btn {
   background: transparent; border: 1px solid var(--border); color: var(--dim); border-radius: 4px;
