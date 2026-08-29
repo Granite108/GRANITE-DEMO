@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>G.R.A.N.I.T.E. — Beyond the Prompt</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     Isolated demonstration. Does not modify, import as a live
+     dependency, or destabilize any canonical G.R.A.N.I.T.E. runtime
+     file. Real modules used for genuine local computation
+     (assets/granite-modules/) are unmodified copies - see README.md.
+     ============================================================ -->
+
+<div id="startScreen" class="screen active">
+  <div class="cosmic-bg"></div>
+  <div class="start-content">
+    <div class="wordmark">G.R.A.N.I.T.E.</div>
+    <div class="tagline">Persistent Context. Governed Intelligence. Human Authority.</div>
+    <p class="start-desc">An interactive walkthrough of what has been built, what remains integration work, and what the architecture could eventually mean — approximately 8–12 minutes, narrated with full captions and a text transcript.</p>
+    <button id="startBtn" class="primary-btn">START EXPERIENCE</button>
+    <div class="start-options">
+      <label><input type="checkbox" id="autoplayToggle" checked> Autoplay narration &amp; auto-advance</label>
+      <label><input type="checkbox" id="speechToggle" checked> Spoken narration (if available in this browser)</label>
+    </div>
+  </div>
+</div>
+
+<div id="demoScreen" class="screen">
+  <header id="demoHeader">
+    <div class="status-legend" id="statusLegend"></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </header>
+
+  <main id="sceneStage" aria-live="polite"></main>
+
+  <div id="captionBar" class="caption-bar">
+    <div id="captionText" class="caption-text"></div>
+  </div>
+
+  <div id="transcriptPanel" class="transcript-panel" hidden>
+    <div class="transcript-header">
+      <span>Narration Transcript</span>
+      <button id="closeTranscriptBtn" class="icon-btn">Close</button>
+    </div>
+    <div id="transcriptBody" class="transcript-body"></div>
+  </div>
+
+  <nav id="controlBar" class="control-bar">
+    <button id="prevBtn" class="ctrl-btn" title="Previous scene">◀ Previous</button>
+    <button id="replayBtn" class="ctrl-btn" title="Replay this scene">↺ Replay</button>
+    <button id="pauseBtn" class="ctrl-btn" title="Pause">⏸ Pause</button>
+    <button id="skipBtn" class="ctrl-btn" title="Skip narration">⏭ Skip</button>
+    <button id="nextBtn" class="ctrl-btn" title="Next scene">Next ▶</button>
+    <span class="ctrl-sep"></span>
+    <button id="muteBtn" class="ctrl-btn" title="Mute narration">🔊 Sound</button>
+    <button id="transcriptBtn" class="ctrl-btn" title="Show transcript">☰ Transcript</button>
+    <button id="manualModeBtn" class="ctrl-btn" title="Toggle manual exploration mode">🖐 Explore</button>
+  </nav>
+</div>
+
+<script src="assets/granite-modules/granite-scenario-simulation.js"></script>
+<script src="assets/granite-modules/granite-context-packaging.js"></script>
+<script src="assets/granite-modules/granite-cognitive-roles.js"></script>
+<script src="scenes_part1.js"></script>
+<script src="scenes_part2.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>
